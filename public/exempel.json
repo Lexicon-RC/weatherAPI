@@ -1,0 +1,20 @@
+{
+  "coord": { "lon": 17.1, "lat": 61.73 },
+  "weather": [
+    { "id": 600, "main": "Snow", "description": "lätt snöfall", "icon": "13d" }
+  ],
+  "main": {
+    "temp": -3.4,
+    "feels_like": -8.1,
+    "temp_min": -4.0,
+    "temp_max": -2.8,
+    "pressure": 1012,
+    "humidity": 87
+  },
+  "visibility": 6000,
+  "wind": { "speed": 4.6, "deg": 330 },
+  "sys": { "country": "SE", "sunrise": 1795506600, "sunset": 1795529400 },
+  "timezone": 3600,
+  "name": "Hudiksvall",
+  "cod": 200
+}

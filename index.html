@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- TILLGÄNGLIGHET: lang="sv" gör att skärmläsare läser texten med svenskt uttal -->
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Väderkollen</title>
+</head>
+<body>
+
+  <header class="topp">
+    <!-- TILLGÄNGLIGHET: emojin är bara pynt. aria-hidden gör att skärmläsaren hoppar över den. -->
+    <h1 class="logo"><span aria-hidden="true">☀️</span> Väderkollen</h1>
+
+    <!-- role="search" berättar för skärmläsaren att det här är en sökruta -->
+    <form id="sok-formular" class="sok" role="search">
+      <!-- TILLGÄNGLIGHET: varje fält behöver en <label>. for="..." kopplar ihop den med fältet. -->
+      <label for="stad-input">Sök stad</label>
+      <div class="sok-rad">
+        <input id="stad-input" type="text" placeholder="t.ex. Hudiksvall" required>
+        <!-- TILLGÄNGLIGHET: knappen har riktig text, inte bara en ikon -->
+        <button type="submit">Sök</button>
+      </div>
+    </form>
+  </header>
+
+  <main class="innehall">
+
+    <!-- TILLGÄNGLIGHET: aria-live="polite" gör att skärmläsaren läser upp
+         texten här när den ändras, t.ex. "Hämtar väder..." eller ett fel. -->
+    <p id="meddelande" class="meddelande" role="status" aria-live="polite"></p>
+
+    <!-- hidden = dold tills vi har väderdata -->
+    <section id="vader-kort" class="kort" aria-labelledby="stad-namn" hidden>
+      <h2 id="stad-namn"></h2>
+
+      <div class="temp-rad">
+        <!-- TILLGÄNGLIGHET: alt="" eftersom samma sak redan står i texten bredvid.
+             Annars skulle skärmläsaren säga "lätt snöfall" två gånger. -->
+        <img id="ikon" src="" alt="" width="100" height="100">
+        <p id="temp" class="temp"></p>
+      </div>
+
+      <p id="beskrivning" class="beskrivning"></p>
+
+      <ul class="detaljer">
+        <li>Känns som <strong id="kanns-som"></strong></li>
+        <li>Vind <strong id="vind"></strong></li>
+        <li>Luftfuktighet <strong id="fukt"></strong></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="fot">
+    Väderdata från <a href="https://openweathermap.org/">OpenWeatherMap</a>
+  </footer>
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>

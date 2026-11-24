@@ -1,0 +1,122 @@
+/* =====================================================
+   Färger
+   TILLGÄNGLIGHET: alla textfärger är kontrollerade så att de
+   syns tydligt mot bakgrunden (kontrast minst 4.5:1).
+   ===================================================== */
+:root {
+  --bakgrund: #f3f4f6;
+  --kort: #ffffff;
+  --text: #1f2937;
+  --gra-text: #4b5563;
+  --orange: #c2410c;
+  --mork: #1f2937;
+  --fel: #b91c1c;
+  --fokus: #2563eb;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* TILLGÄNGLIGHET: storlekar i rem. Då växer allt om användaren
+   har valt större text i webbläsaren. */
+body {
+  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  background: var(--bakgrund);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* "hidden" ska alltid dölja, även om något annat säger display: grid */
+[hidden] { display: none !important; }
+
+/* TILLGÄNGLIGHET: en tydlig blå ram visar var man är när man
+   använder Tab-tangenten. Ta ALDRIG bort den utan att ersätta den. */
+:focus-visible {
+  outline: 3px solid var(--fokus);
+  outline-offset: 3px;
+}
+
+/* ===== Toppen ===== */
+.topp {
+  background: var(--mork);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: end;
+  justify-content: space-between;
+}
+
+/* I den mörka toppen syns blått dåligt, så där blir fokusramen ljusblå */
+.topp :focus-visible { outline-color: #93c5fd; }
+
+.logo { font-size: 1.5rem; }
+
+.sok { flex: 1; max-width: 28rem; }
+.sok label { display: block; font-weight: 600; margin-bottom: 0.25rem; }
+.sok-rad { display: flex; gap: 0.5rem; }
+
+.sok input {
+  flex: 1;
+  padding: 0.6rem 0.9rem;
+  border: 2px solid #9ca3af;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.sok button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background: var(--orange);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sok button:hover { background: #9a3412; }
+
+/* ===== Innehåll ===== */
+.innehall {
+  width: 100%;
+  max-width: 40rem;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+  flex: 1;
+}
+
+.meddelande { text-align: center; color: var(--gra-text); min-height: 1.5em; margin-bottom: 1rem; }
+.meddelande.fel { color: var(--fel); font-weight: 600; }
+
+.kort {
+  background: var(--kort);
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.kort h2 { font-size: 1.75rem; }
+
+.temp-rad { display: flex; align-items: center; gap: 1rem; }
+.temp { font-size: 3.5rem; font-weight: 700; color: var(--orange); }
+.beskrivning { font-size: 1.25rem; margin-bottom: 1rem; }
+.beskrivning::first-letter { text-transform: uppercase; }
+
+.detaljer { list-style: none; display: grid; gap: 0.5rem; }
+
+.detaljer li {
+  background: var(--bakgrund);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ===== Fot ===== */
+.fot { text-align: center; padding: 1rem; color: var(--gra-text); }
+.fot a { color: var(--orange); }
